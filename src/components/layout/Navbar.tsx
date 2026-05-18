@@ -1,112 +1,129 @@
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
-import { Menu, X, Settings } from 'lucide-react';
-import { cn } from '@/src/lib/utils';
+import React from 'react';
+import { motion, AnimatePresence, useScroll, useTransform } from 'motion/react';
+import { Menu, X } from 'lucide-react';
 
-export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const navLinks = [
-    { name: 'About', href: '#about' },
-    { name: 'Infrastructure', href: '#industries' },
-    { name: 'Services', href: '#services' },
-    { name: 'Products', href: '#products' },
-    { name: 'Quality', href: '#quality' },
-    { name: 'Contact', href: '#contact' },
-  ];
+export default function Navbar({
+  scrollToId,
+  isMobileMenuOpen,
+  setIsMobileMenuOpen
+}: {
+  scrollToId: (e: React.MouseEvent, id: string) => void;
+  isMobileMenuOpen: boolean;
+  setIsMobileMenuOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}) {
+  const { scrollY } = useScroll();
+  const navBg = useTransform(scrollY, [0, 50], ["rgba(252, 250, 247, 0.2)", "rgba(252, 250, 247, 0.95)"]);
+  const navBorder = useTransform(scrollY, [0, 50], ["rgba(232, 228, 223, 0)", "rgba(232, 228, 223, 1)"]);
+  const navBlur = useTransform(scrollY, [0, 50], ["blur(0px)", "blur(12px)"]);
 
   return (
-    <nav 
-      className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-6 h-20 flex items-center",
-        scrolled ? "bg-white/90 backdrop-blur-md border-b border-slate-100 shadow-sm" : "bg-transparent"
-      )}
-    >
-      <div className="max-w-7xl mx-auto w-full flex items-center justify-between">
-        <a href="#home" className="flex items-center gap-3">
-          <div className="w-10 h-10 bg-slate-950 flex items-center justify-center rounded-xl rotate-3">
-             <span className="text-lime text-2xl font-black -rotate-3">M</span>
+    <>
+      <motion.nav 
+        style={{ 
+          backgroundColor: navBg, 
+          borderBottomColor: navBorder,
+          backdropFilter: navBlur
+        }}
+        className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-[5%] h-[100px] border-b transition-all duration-500"
+      >
+        <motion.div 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          className="flex items-center gap-3"
+        >
+          <div className="w-8 h-8 bg-brand-dark flex items-center justify-center relative overflow-hidden group">
+            <div className="absolute inset-0 bg-lime translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
+            <span className="font-space text-lg font-bold text-white relative z-10 group-hover:text-brand-dark transition-colors">M</span>
           </div>
-          <div className="flex flex-col leading-none">
-            <span className={cn(
-              "text-2xl font-bold font-display tracking-tight transition-colors text-slate-900"
-            )}>
-              MAGNUS <span className="text-lime-dark">ENTERPRISES</span>
+          <div className="flex flex-col -space-y-1.5">
+            <span className="font-space text-2xl font-bold tracking-tighter text-brand-dark uppercase">
+              Magnus
+            </span>
+            <span className="font-sans text-[8px] font-bold tracking-[4px] uppercase text-brand-slate">
+              Enterprises <span className="text-lime">.</span>
             </span>
           </div>
-        </a>
-
-        {/* Desktop Nav */}
-        <div className="hidden md:flex items-center gap-12">
-          <ul className="flex items-center gap-8 list-none">
-            {navLinks.map((link) => (
-              <li key={link.name}>
-                <a 
-                  href={link.href}
-                  className={cn(
-                    "text-sm font-semibold transition-all hover:text-lime-dark",
-                    scrolled ? "text-slate-600" : "lg:text-white text-slate-600"
-                  )}
+        </motion.div>
+        
+        <ul className="hidden lg:flex gap-8 xl:gap-12 list-none">
+          {['About', 'Precision Fleet', 'Solutions', 'Gallery', 'Contact'].map((item) => {
+            const id = item.toLowerCase().replace(' ', '-');
+            return (
+              <li key={item}>
+                <motion.a 
+                  key={item} 
+                  whileHover={{ y: -2, color: "#82A300" }}
+                  href={`#${id}`} 
+                  className="nav-link"
+                  onClick={(e) => scrollToId(e, id)}
                 >
-                  {link.name}
-                </a>
+                  {item}
+                </motion.a>
               </li>
-            ))}
-          </ul>
-          <button className={cn(
-            "px-8 py-3 text-sm font-bold tracking-wider rounded-xl transition-all shadow-xl",
-            scrolled ? "bg-slate-950 text-white shadow-slate-950/10" : "bg-white text-slate-950 lg:bg-lime lg:text-slate-950 shadow-lime/20"
-          )}>
-            GET IN TOUCH
-          </button>
+            );
+          })}
+        </ul>
+
+        <div className="hidden lg:block">
+          <motion.button 
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={(e) => scrollToId(e, 'contact')}
+            className="btn-primary-custom group"
+          >
+            Request Quote
+          </motion.button>
         </div>
 
-        {/* Mobile Toggle */}
-        <button 
-          className={cn(
-            "md:hidden p-2 transition-colors text-slate-900"
-          )} 
-          onClick={() => setIsOpen(!isOpen)}
-        >
-          {isOpen ? <X /> : <Menu />}
+        <button className="lg:hidden p-2" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
-      </div>
+      </motion.nav>
 
       {/* Mobile Menu */}
       <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="absolute top-[68px] left-0 right-0 bg-white border-b border-slate-100 md:hidden flex flex-col p-6 gap-4 shadow-xl"
+        {isMobileMenuOpen && (
+          <motion.div 
+            initial={{ opacity: 0, x: '100%' }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: '100%' }}
+            className="fixed inset-0 bg-brand-dark z-[60] flex flex-col items-center justify-start lg:justify-center overflow-y-auto space-y-8 lg:space-y-12 p-10 py-24"
           >
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="text-lg font-bold text-slate-900 py-4 border-b border-slate-50 uppercase tracking-widest"
-                onClick={() => setIsOpen(false)}
-              >
-                {link.name}
-              </a>
-            ))}
-            <button
-              className="bg-slate-950 text-white py-4 rounded-xl font-bold uppercase tracking-widest mt-4"
-              onClick={() => setIsOpen(false)}
-            >
-              Contact Us
+            <button className="absolute top-10 right-10 text-white" onClick={() => setIsMobileMenuOpen(false)}>
+              <X size={32} />
             </button>
+            {['About', 'Precision Fleet', 'Solutions', 'Gallery', 'Contact'].map((item) => {
+              const id = item.toLowerCase().replace(' ', '-');
+              return (
+                <motion.a 
+                  key={item} 
+                  whileHover={{ scale: 1.1, color: "#CCFF00" }}
+                  whileTap={{ scale: 0.9 }}
+                  href={`#${id}`} 
+                  className="font-serif text-4xl text-white transition-colors"
+                  onClick={(e) => {
+                    setIsMobileMenuOpen(false);
+                    scrollToId(e, id);
+                  }}
+                >
+                  {item}
+                </motion.a>
+              );
+            })}
+            <motion.button 
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={(e) => {
+                setIsMobileMenuOpen(false);
+                scrollToId(e, 'contact');
+              }}
+              className="btn-primary-custom !bg-lime !text-brand-dark mt-10"
+            >
+              Get Started
+            </motion.button>
           </motion.div>
         )}
       </AnimatePresence>
-    </nav>
+    </>
   );
 }

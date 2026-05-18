@@ -1,95 +1,126 @@
+import React from 'react';
 import { motion } from 'motion/react';
-import { ArrowRight, ShieldCheck, Settings } from 'lucide-react';
-import { cn } from '@/src/lib/utils';
+import { Counter } from '../ui/Shared';
 
-export default function Hero() {
+export default function Hero({
+  scrollToId,
+  grainY,
+  heroImageY
+}: {
+  scrollToId: (e: React.MouseEvent, id: string) => void;
+  grainY: any;
+  heroImageY: any;
+}) {
   return (
-    <section id="home" className="relative min-h-screen bg-white flex flex-col items-center justify-center pt-32 pb-20 overflow-hidden lg:overflow-visible">
-      {/* Background Ambience - Restricted to its own layer to prevent affecting main flow */}
-      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-0 right-0 w-full lg:w-1/2 h-full bg-slate-950 diagonal-split opacity-10 lg:opacity-100 hidden lg:block" />
-        <div className="absolute inset-0 blueprint-grid opacity-[0.03]" />
+    <section className="relative min-h-screen flex items-center bg-off-white overflow-hidden pt-32 pb-32 lg:pb-36 snap-start" id="home">
+      {/* Architectural Background */}
+      <motion.div 
+        style={{ y: grainY }}
+        className="absolute inset-0 z-0 opacity-[0.03] bg-grain pointer-events-none"
+      ></motion.div>
+      <div className="absolute top-0 right-0 w-1/2 h-full bg-brand-dark hidden lg:block z-0 overflow-hidden">
+        <motion.img 
+          style={{ y: heroImageY }}
+          src="https://images.unsplash.com/photo-1537462715879-360eeb61a0ad?auto=format&fit=crop&q=80&w=2600" 
+          alt="CNC Machining" 
+          className="w-full h-full object-cover grayscale contrast-125 brightness-75 scale-110"
+          referrerPolicy="no-referrer"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-off-white via-off-white/20 to-transparent"></div>
       </div>
+      
+      <div className="container-custom relative z-10 w-full px-[5%]">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-20 items-center">
+            <div>
+              <motion.div 
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                className="flex items-center gap-4 mb-8"
+              >
+                <div className="h-[1px] w-12 bg-lime"></div>
+                <span className="font-sans text-[10px] font-bold tracking-[6px] uppercase text-brand-slate">ISO 9001:2015 Tier-1 Manufacturing</span>
+              </motion.div>
 
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
-          
-          {/* Main Messaging */}
-          <div className="w-full lg:w-[65%]">
-            <motion.div
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-            >
-              <div className="inline-flex items-center gap-4 mb-8">
-                <div className="w-10 h-[2px] bg-lime-dark" />
-                <span className="text-[10px] font-black tracking-[0.4em] text-slate-500 uppercase">
-                  Manufacturing Excellence · Nashik, India
-                </span>
-              </div>
-
-              <h1 className="text-[clamp(42px,7vw,100px)] font-bold font-display leading-[0.9] tracking-tighter text-slate-950 mb-4 uppercase">
-                MAGNUS <br className="hidden sm:block" />
-                <span className="text-lime-dark">ENTERPRISES.</span>
-              </h1>
+              <motion.h1 
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                className="font-space text-[clamp(54px,8vw,120px)] leading-[0.85] text-brand-dark tracking-tighter mb-10 font-bold uppercase"
+              >
+                ENGINEERING <br />
+                FOR THE <span className="text-lime">MICRON</span> <br />
+                ABSOLUTE.
+              </motion.h1>
               
-              <div className="text-xl font-bold font-display text-slate-400 uppercase tracking-widest mb-10">
-                Precision Machining & Industrial Manufacturing
-              </div>
-
-              <div className="grid md:grid-cols-2 gap-10 lg:gap-16 items-start">
-                <div>
-                  <p className="text-lg md:text-xl text-slate-500 leading-relaxed font-medium font-sans mb-10">
-                    Reliable CNC machining, fabrication, switchgear assembly, and custom manufacturing solutions engineered for modern industries.
-                  </p>
-                  
-                  <div className="flex flex-wrap gap-4">
-                    <a 
-                      href="#services" 
-                      className="px-8 py-4 bg-slate-950 hover:bg-lime hover:text-black text-white font-black text-sm tracking-widest uppercase transition-all flex items-center gap-3 rounded-xl group shadow-2xl shadow-slate-900/20"
-                    >
-                      Our Capabilities <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                    </a>
+              <motion.p 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+                className="font-sans text-xl text-brand-slate max-w-lg leading-relaxed font-light mb-12"
+              >
+                Specializing in high-accuracy Vertical Milling and CNC Turning. We deliver the components that drive heavy industry, with zero tolerance for error.
+              </motion.p>
+              
+              <motion.div 
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4 }}
+                className="flex flex-wrap items-center gap-8"
+              >
+                <motion.button 
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={(e) => scrollToId(e, 'precision-fleet')}
+                  className="btn-primary-custom px-16 group"
+                >
+                  Our Fleet
+                </motion.button>
+                
+                <div className="flex items-center gap-4 py-2 border-l border-brand-border pl-8">
+                  <div className="flex flex-col">
+                    <span className="font-sans text-xs font-bold text-brand-dark">Nashik, India</span>
+                    <span className="font-sans text-[10px] text-brand-slate uppercase font-medium tracking-widest">Base Operations</span>
                   </div>
                 </div>
+              </motion.div>
 
-                <div className="flex flex-col gap-6 pt-2">
-                   <div className="flex items-center gap-5 group">
-                      <div className="w-11 h-11 bg-slate-100 rounded-2xl flex items-center justify-center text-slate-400 group-hover:text-lime-dark transition-colors">
-                        <Settings className="w-5 h-5 animate-[spin_10s_linear_infinite]" />
-                      </div>
-                      <div>
-                        <div className="text-[10px] font-black tracking-widest text-slate-400 uppercase mb-1">QMS Standard</div>
-                        <div className="text-sm font-bold text-slate-900">ISO 9001:2015</div>
-                      </div>
-                   </div>
-                   <div className="flex items-center gap-5 group">
-                      <div className="w-11 h-11 bg-slate-100 rounded-2xl flex items-center justify-center text-slate-400 group-hover:text-lime-dark transition-colors">
-                        <ShieldCheck className="w-5 h-5" />
-                      </div>
-                      <div>
-                        <div className="text-[10px] font-black tracking-widest text-slate-400 uppercase mb-1">Sector Focus</div>
-                        <div className="text-sm font-bold text-slate-900">Switchgear & Machinery</div>
-                      </div>
-                   </div>
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.6, duration: 1 }}
+                className="mt-16 grid grid-cols-3 gap-4 sm:gap-12 border-t border-brand-border pt-12"
+              >
+                <div className="space-y-1">
+                  <div className="font-space text-3xl font-bold text-lime">
+                    <Counter value={14} suffix="+" />
+                  </div>
+                  <div className="font-sans text-[9px] font-bold tracking-[2px] uppercase text-brand-slate">Years Active</div>
                 </div>
-              </div>
-            </motion.div>
-          </div>
-
-          {/* Decorative side element */}
-          <div className="w-full lg:w-[35%] hidden lg:flex justify-end pr-10">
-             <div className="relative">
-                <div className="text-[180px] font-black text-slate-100/40 leading-none select-none tracking-tighter">
-                   M
+                <div className="space-y-1">
+                  <div className="font-space text-3xl font-bold text-lime">
+                    <Counter value={2500} suffix="+" duration={3} />
+                  </div>
+                  <div className="font-sans text-[9px] font-bold tracking-[2px] uppercase text-brand-slate">Projects</div>
                 </div>
-                <div className="absolute top-1/2 -left-1/4 w-[150%] h-[2px] bg-slate-100/50" />
-                <div className="absolute -top-4 right-0 py-2 border-b-2 border-lime text-[10px] font-black tracking-[0.5em] text-slate-400 uppercase whitespace-nowrap">
-                   Industrial Unit 01
+                <div className="space-y-1">
+                  <div className="font-space text-3xl font-bold text-lime">
+                    <Counter value={12} suffix="+" />
+                  </div>
+                  <div className="font-sans text-[9px] font-bold tracking-[2px] uppercase text-brand-slate">Core Machines</div>
                 </div>
-             </div>
+              </motion.div>
+            </div>
           </div>
         </div>
+      </div>
+
+      {/* Global Nav-Link styles reference bottom scroll indicator */}
+      <div className="absolute bottom-8 left-[5%] hidden xl:flex items-center gap-6 z-20">
+        <div className="w-10 h-[10px] flex items-center justify-center">
+          <div className="w-[1px] h-full bg-brand-dark/20"></div>
+        </div>
+        <span className="font-sans text-[9px] font-bold tracking-[4px] uppercase text-brand-slate/40">Scroll to Explore</span>
       </div>
     </section>
   );
