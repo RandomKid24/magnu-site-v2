@@ -252,7 +252,7 @@ const App = () => {
           </div>
         </motion.div>
         
-        <ul className="hidden md:flex gap-12 list-none">
+        <ul className="hidden lg:flex gap-8 xl:gap-12 list-none">
           {['About', 'Precision Fleet', 'Solutions', 'Gallery', 'Contact'].map((item) => {
             const id = item.toLowerCase().replace(' ', '-');
             return (
@@ -271,7 +271,7 @@ const App = () => {
           })}
         </ul>
 
-        <div className="hidden md:block">
+        <div className="hidden lg:block">
           <motion.button 
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
@@ -282,7 +282,7 @@ const App = () => {
           </motion.button>
         </div>
 
-        <button className="md:hidden p-2" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+        <button className="lg:hidden p-2" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
           {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </motion.nav>
@@ -294,7 +294,7 @@ const App = () => {
             initial={{ opacity: 0, x: '100%' }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: '100%' }}
-            className="fixed inset-0 bg-brand-dark z-[60] flex flex-col items-center justify-center space-y-12 p-10"
+            className="fixed inset-0 bg-brand-dark z-[60] flex flex-col items-center justify-start lg:justify-center overflow-y-auto space-y-8 lg:space-y-12 p-10 py-24"
           >
             <button className="absolute top-10 right-10 text-white" onClick={() => setIsMobileMenuOpen(false)}>
               <X size={32} />
@@ -333,7 +333,7 @@ const App = () => {
       </AnimatePresence>
 
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center bg-off-white overflow-hidden pt-20 snap-start" id="home">
+      <section className="relative min-h-screen flex items-center bg-off-white overflow-hidden pt-32 pb-32 lg:pb-36 snap-start" id="home">
         {/* Architectural Background */}
         <motion.div 
           style={{ y: grainY }}
@@ -410,7 +410,7 @@ const App = () => {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.6, duration: 1 }}
-                  className="mt-16 grid grid-cols-3 gap-12 border-t border-brand-border pt-12"
+                  className="mt-16 grid grid-cols-3 gap-4 sm:gap-12 border-t border-brand-border pt-12"
                 >
                   <div className="space-y-1">
                     <div className="font-space text-3xl font-bold text-lime">
@@ -433,24 +433,12 @@ const App = () => {
                 </motion.div>
               </div>
 
-              {/* Technical Blueprint Elements for Desktop */}
-              <div className="hidden lg:flex flex-col items-end gap-12 text-right">
-                <div className="space-y-2">
-                  <div className="font-space text-5xl font-bold text-brand-dark/20 uppercase">0,001mm</div>
-                  <div className="font-sans text-[9px] font-bold tracking-[4px] uppercase text-brand-slate/40">Geometric Precision</div>
-                </div>
-                <div className="space-y-2">
-                  <div className="font-space text-5xl font-bold text-brand-dark/20 uppercase">8000 RPM</div>
-                  <div className="font-sans text-[9px] font-bold tracking-[4px] uppercase text-brand-slate/40">Rotation Velocity</div>
-                </div>
-                <div className="w-[1px] h-32 bg-gradient-to-b from-lime to-transparent"></div>
-              </div>
             </div>
           </div>
         </div>
 
         {/* Global Nav-Link styles reference bottom scroll indicator */}
-        <div className="absolute bottom-10 left-[5%] flex items-center gap-6">
+        <div className="absolute bottom-8 left-[5%] hidden xl:flex items-center gap-6 z-20">
           <div className="w-10 h-[10px] flex items-center justify-center">
             <div className="w-[1px] h-full bg-brand-dark/20"></div>
           </div>
@@ -514,9 +502,9 @@ const App = () => {
               className="relative aspect-[4/5] bg-brand-dark overflow-hidden group border border-lime/20"
             >
               <img 
-                src="https://images.unsplash.com/photo-1541888946425-d81bb19480c5?auto=format&fit=crop&q=80&w=1200"
-                alt="Precision Work"
-                className="w-full h-full object-cover grayscale opacity-60 group-hover:scale-110 transition-transform duration-1000"
+                src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&q=80&w=1200"
+                alt="Precision Fabrication"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
                 referrerPolicy="no-referrer"
               />
               <div className="absolute inset-0 ring-1 ring-inset ring-white/10"></div>
@@ -542,31 +530,38 @@ const App = () => {
               },
               { 
                 id: '02', 
-                type: 'CNC Turning', 
-                make: 'Macpower / Ace', 
-                specs: 'Max Dia: 320 mm // Length: 325 mm // High Precision',
+                type: 'CNC Turning (I)', 
+                make: 'Macpower CNC', 
+                specs: 'Max Dia: 320 mm // Max Length: 325 mm // 8 Tool Stations',
                 image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=800'
               },
               { 
                 id: '03', 
-                type: 'DRO Milling', 
-                make: 'Custom Precision', 
-                specs: 'Digital Read Out // High-Accuracy Manual Milling',
+                type: 'CNC Turning (II)', 
+                make: 'Ace Micromatics', 
+                specs: 'Max Dia: 250 mm // Max Length: 300 mm // 12 Tool Stations',
                 image: 'https://images.unsplash.com/photo-1565514020179-026b92b84bb6?auto=format&fit=crop&q=80&w=800'
               },
               { 
                 id: '04', 
+                type: 'DRO Milling', 
+                make: 'Custom Precision', 
+                specs: 'Digital Read Out // High-Accuracy Manual Milling',
+                image: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&q=80&w=800'
+              },
+              { 
+                id: '05', 
                 type: 'Drilling & Tapping', 
                 make: 'Industrial Grade', 
                 specs: 'High Speed // Precision Threading Capabilities',
                 image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800'
               },
               { 
-                id: '05', 
+                id: '06', 
                 type: 'Bandsaw Cutting', 
                 make: 'Shivam Engineering', 
                 specs: 'Max Cutting Dia: 200 mm // Rapid Metal Sizing',
-                image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=800'
+                image: 'https://images.unsplash.com/photo-1535813547-99c456a41d4a?auto=format&fit=crop&q=80&w=800'
               }
             ].map((machine, i) => (
               <motion.div 
@@ -714,17 +709,17 @@ const App = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
               { 
-                url: "https://images.unsplash.com/photo-1565514020179-026b92b84bb6?auto=format&fit=crop&q=80&w=800",
+                url: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&q=80&w=800",
                 caption: "High-Speed Spindle Analysis",
                 sub: "Calibration Stage"
               },
               { 
-                url: "https://images.unsplash.com/photo-1541888946425-d81bb19480c5?auto=format&fit=crop&q=80&w=800",
+                url: "https://images.unsplash.com/photo-1535813547-99c456a41d4a?auto=format&fit=crop&q=80&w=800",
                 caption: "Machined Steel Components",
                 sub: "Aerospace Specification"
               },
               { 
-                url: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800",
+                url: "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&q=80&w=800",
                 caption: "Vertical Milling Operations",
                 sub: "3-Axis Configuration"
               },
@@ -865,7 +860,7 @@ const App = () => {
 
               <form className="space-y-10" onSubmit={handleFormSubmit}>
                 <div className="space-y-4">
-                  <div className="flex justify-between items-end">
+                  <div className="flex justify-between items-end flex-wrap gap-2">
                     <label className={cn("font-sans text-[10px] font-bold tracking-[3px] uppercase transition-colors", errors.name ? "text-red-500" : "text-brand-slate")}>Credentials</label>
                     {errors.name && <span className="text-red-500 text-[9px] font-bold uppercase tracking-wider">{errors.name}</span>}
                   </div>
@@ -884,7 +879,7 @@ const App = () => {
                   />
                 </div>
                 <div className="space-y-4">
-                  <div className="flex justify-between items-end">
+                  <div className="flex justify-between items-end flex-wrap gap-2">
                     <label className={cn("font-sans text-[10px] font-bold tracking-[3px] uppercase transition-colors", errors.email ? "text-red-500" : "text-brand-slate")}>Digital Address</label>
                     {errors.email && <span className="text-red-500 text-[9px] font-bold uppercase tracking-wider">{errors.email}</span>}
                   </div>
@@ -903,7 +898,7 @@ const App = () => {
                   />
                 </div>
                 <div className="space-y-4">
-                  <div className="flex justify-between items-end">
+                  <div className="flex justify-between items-end flex-wrap gap-2">
                     <label className={cn("font-sans text-[10px] font-bold tracking-[3px] uppercase transition-colors", errors.message ? "text-red-500" : "text-brand-slate")}>Project Narrative</label>
                     {errors.message && <span className="text-red-500 text-[9px] font-bold uppercase tracking-wider">{errors.message}</span>}
                   </div>
