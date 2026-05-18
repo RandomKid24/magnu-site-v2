@@ -1,7 +1,3 @@
-<div align="center">
-<img width="1200" height="475" alt="Magnus Enterprises Banner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
-
 # Magnus Enterprises
 
 > **ISO 9001:2015 Certified Precision Machining & Industrial Manufacturing Company**  
@@ -59,7 +55,7 @@ To run this application locally, you need:
     ```bash
     cp .env.example .env.local
     ```
-    *Note: No complex API keys or external AI setups are required. This showcase is fully static, high-performance, and standalone.*
+    *Note: This project is a fully static, high-performance, standalone showcase and does not require external backend API keys.*
 
 4.  **Run the local development server:**
     ```bash
