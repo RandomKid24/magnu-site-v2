@@ -9,9 +9,6 @@ export default function Features() {
       <div className="container mx-auto px-6">
         <div className="flex flex-col lg:flex-row gap-24 mb-32 items-start">
            <div className="lg:w-1/2">
-              <div className="inline-flex items-center gap-3 bg-slate-950 text-white py-1 px-4 mb-10 text-[9px] font-black tracking-[0.4em] uppercase">
-                 Magnus Standard // Ver: 2024
-              </div>
               <h3 className="text-7xl md:text-9xl font-black text-slate-950 leading-[0.75] tracking-tighter uppercase">
                  Engineered <br />
                  By <span className="text-lime-dark italic font-normal">Data.</span>
@@ -22,14 +19,6 @@ export default function Features() {
                  <p className="text-slate-500 text-2xl font-medium leading-tight mb-12 tracking-tight">
                     Our manufacturing protocols are built on three decades of technical iteration and precision engineering feedback.
                  </p>
-                 <div className="flex items-center gap-6">
-                    <div className="flex -space-x-4">
-                       {[1,2,3].map(i => (
-                         <div key={i} className="w-12 h-12 rounded-full border-4 border-white bg-slate-100 flex items-center justify-center text-[10px] font-black">M{i}</div>
-                       ))}
-                    </div>
-                    <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Global Ops Active</span>
-                 </div>
               </div>
            </div>
         </div>
@@ -57,7 +46,6 @@ export default function Features() {
                       <div className="w-8 h-8 rounded-full border border-slate-200 flex items-center justify-center group-hover:bg-lime group-hover:border-lime transition-all">
                          <Check className="w-3 h-3 text-slate-300 group-hover:text-black" strokeWidth={3} />
                       </div>
-                      <span className="text-[10px] font-black text-slate-400 group-hover:text-slate-950 transition-colors uppercase tracking-[0.3em]">Protocol_0{i+1}</span>
                    </div>
 
                    <h4 className="text-3xl lg:text-5xl font-black text-slate-950 uppercase tracking-tighter leading-none mb-8 group-hover:translate-x-4 transition-transform duration-500">

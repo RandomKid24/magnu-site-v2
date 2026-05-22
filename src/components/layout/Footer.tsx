@@ -8,22 +8,22 @@ export default function Footer({
   scrollToId: (e: React.MouseEvent, id: string) => void;
 }) {
   return (
-    <footer className="py-24 px-[5%] bg-brand-dark text-white text-center snap-start">
+    <footer className="py-24 px-[5%] bg-black text-white text-center snap-start border-t border-white/5">
       <div className="max-w-7xl mx-auto space-y-12">
         <div className="flex flex-col items-center -space-y-2">
           <span className="font-space text-5xl font-bold tracking-tighter uppercase">Magnus</span>
-          <span className="font-sans text-[11px] font-bold tracking-[10px] uppercase text-white/20">Enterprises</span>
+          <span className="font-sans text-[11px] font-bold tracking-[10px] uppercase text-lime">Enterprises</span>
         </div>
 
         <nav className="flex flex-wrap justify-center gap-x-12 gap-y-6">
-          {['About', 'Precision Fleet', 'Solutions', 'Gallery', 'Contact'].map((item) => {
+          {['About', 'Fleet', 'Solutions', 'Products', 'Gallery', 'Contact'].map((item) => {
             const id = item.toLowerCase().replace(' ', '-');
             return (
               <motion.a 
                 key={item} 
-                whileHover={{ y: -2, color: "#82A300" }}
+                whileHover={{ y: -2, color: "#CCFF00" }}
                 href={`#${id}`} 
-                className="footer-link"
+                className="font-sans text-[10px] font-bold tracking-[3px] uppercase text-white/40 transition-colors duration-300"
                 onClick={(e) => scrollToId(e, id)}
               >
                 {item}
@@ -45,15 +45,15 @@ export default function Footer({
               href={href} 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="text-white/30 transition-colors"
+              className="text-white/20 transition-colors"
             >
               <Icon size={20} />
             </motion.a>
           ))}
         </div>
         <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8 font-sans text-[9px] font-bold tracking-[6px] uppercase text-white/10">
-          <span className="text-center md:text-left">© 2026 Magnus Enterprises // Nashik, India // All Rights Reserved</span>
-          <span className="text-white/30 tracking-[4px] hover:text-lime transition-colors cursor-default">Forged by Beforth</span>
+          <span className="text-center md:text-left">© 2026 Magnus Enterprises // Nashik, India // ISO 9001:2015</span>
+          <span className="text-white/30 tracking-[4px] hover:text-lime transition-colors cursor-default">Precision Manufacturing Baseline</span>
         </div>
       </div>
     </footer>

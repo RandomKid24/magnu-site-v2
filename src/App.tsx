@@ -1,5 +1,4 @@
 import React from 'react';
-import { useScroll, useTransform } from 'motion/react';
 import { ScrollProgress, ScrollToTop } from './components/ui/Shared';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
@@ -7,16 +6,13 @@ import Hero from './components/sections/Hero';
 import About from './components/sections/About';
 import Fleet from './components/sections/Fleet';
 import Services from './components/sections/Services';
+import Products from './components/sections/Products';
 import Gallery from './components/sections/Gallery';
 import Quality from './components/sections/Quality';
 import Contact from './components/sections/Contact';
 
 const App = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
-  const { scrollY } = useScroll();
-  
-  const heroImageY = useTransform(scrollY, [0, 1000], [0, 300]);
-  const grainY = useTransform(scrollY, [0, 3000], [0, -150]);
 
   const scrollToId = (e: React.MouseEvent, id: string) => {
     e.preventDefault();
@@ -27,7 +23,7 @@ const App = () => {
   };
 
   return (
-    <div className="bg-off-white text-brand-dark min-h-screen snap-y snap-proximity overflow-y-auto scroll-smooth">
+    <div className="bg-off-white text-brand-dark min-h-screen scroll-smooth">
       <ScrollProgress />
       
       {/* Navigation */}
@@ -40,18 +36,19 @@ const App = () => {
       {/* Hero Section */}
       <Hero 
         scrollToId={scrollToId}
-        grainY={grainY}
-        heroImageY={heroImageY}
       />
 
       {/* Philosophy Section */}
-      <About grainY={grainY} />
+      <About />
 
       {/* Fleet Section */}
       <Fleet />
 
       {/* Solutions Grid */}
       <Services />
+
+      {/* Product Portfolio */}
+      <Products />
 
       {/* Process Gallery */}
       <Gallery />

@@ -100,14 +100,38 @@ export const machinery = [
 ];
 
 export const products = [
-  "CNC Machined Components",
-  "Bushes & Shafts",
-  "Copper Components",
-  "Precision Rings & Assemblies",
-  "Switchgear Components",
-  "Fabricated Industrial Parts",
-  "Mechanical Assemblies",
-  "Custom Engineered Products"
+  { title: "CNC Machined Component 01", image: "/product-1.jpeg" },
+  { title: "Precision Bush & Shaft", image: "/product-2.jpeg" },
+  { title: "Copper Connector Part", image: "/product-3.jpeg" },
+  { title: "Switchgear Mechanism", image: "/product-4.jpeg" },
+  { title: "Industrial Fitting", image: "/product-5.jpeg" },
+  { title: "Aluminum Profile Part", image: "/product-6.jpeg" },
+  { title: "Custom Steel Assembly", image: "/product-7.jpeg" },
+  { title: "Brass Precision Part", image: "/product-8.jpeg" },
+  { title: "CNC Milled Plate", image: "/product-9.jpeg" },
+  { title: "Machined Housing", image: "/product-10.jpeg" },
+  { title: "Internal Gear Component", image: "/product-11.jpeg" },
+  { title: "Precision Ring Setup", image: "/product-12.jpeg" },
+  { title: "Industrial Coupling", image: "/product-13.jpeg" },
+  { title: "Custom Flange Piece", image: "/product-14.jpeg" },
+  { title: "Aerospace Grade Part", image: "/product-15.jpeg" },
+  { title: "Power Distribution Component", image: "/product-16.jpeg" },
+  { title: "Mechanism Drive Shaft", image: "/product-17.jpeg" },
+  { title: "Heavy Duty Bracket", image: "/product-18.jpeg" },
+  { title: "Precision Valve Body", image: "/product-19.jpeg" },
+  { title: "Hydraulic System Part", image: "/product-20.jpeg" },
+  { title: "Machined Casting", image: "/product-21.jpeg" },
+  { title: "Specialized Bolt Plate", image: "/product-22.jpeg" },
+  { title: "Engineered Support Hub", image: "/product-23.jpeg" },
+  { title: "High-Tolerance Spacer", image: "/product-24.jpeg" },
+  { title: "Custom Threaded Part", image: "/product-25.jpeg" },
+  { title: "Switchgear Base Plate", image: "/product-26.jpeg" },
+  { title: "Rotary Component", image: "/product-27.jpeg" },
+  { title: "Precision Guide Rail", image: "/product-28.jpeg" },
+  { title: "Machined Mounting Kit", image: "/product-29.jpeg" },
+  { title: "Industrial Bearing Hub", image: "/product-30.jpeg" },
+  { title: "Custom Tooling Head", image: "/product-31.jpeg" },
+  { title: "Final Assembly Part", image: "/product-32.jpeg" }
 ];
 
 export const industries = [

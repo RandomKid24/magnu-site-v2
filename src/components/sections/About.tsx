@@ -1,75 +1,110 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { SectionHeader } from '../ui/Shared';
+import { philosophy } from '../../constants';
 
-export default function About({
-  grainY
-}: {
-  grainY: any;
-}) {
+export default function About() {
   return (
-    <section className="py-40 px-[5%] bg-white border-y border-brand-border relative overflow-hidden snap-start" id="about">
-      <motion.div 
-        style={{ y: grainY }}
-        className="absolute inset-0 bg-grain opacity-[0.4] pointer-events-none"
-      ></motion.div>
-      <div className="max-w-7xl mx-auto relative z-10">
-        <div className="grid lg:grid-cols-2 gap-24 items-center">
-          <div>
-            <SectionHeader subtitle="The Narrative" title="Engineered with Precision." />
-            <motion.p 
-              initial={{ opacity: 0, y: 20 }}
+    <section className="py-40 px-[5%] bg-white relative overflow-hidden scroll-mt-[100px]" id="about">
+      {/* Background technical grid - very subtle */}
+      <div className="absolute inset-0 bg-dots opacity-[0.03] pointer-events-none text-brand-dark"></div>
+      
+      <div className="container-custom relative z-10">
+        <div className="flex flex-col lg:flex-row items-start gap-24">
+          
+          {/* Left: Brand Identity (Sticky on Desktop) */}
+          <div className="lg:w-1/3 lg:sticky lg:top-[150px]">
+            <motion.div 
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="space-y-8"
+            >
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-[1px] bg-lime"></div>
+                <span className="font-sans text-[10px] font-bold tracking-[8px] text-brand-slate uppercase">Established 2012</span>
+              </div>
+              
+              <h2 className="font-space text-6xl font-bold text-brand-dark tracking-tighter leading-none uppercase">
+                THE <br />
+                <span className="text-lime">MAGNUS</span> <br />
+                CORE.
+              </h2>
+              
+              <div className="pt-8 border-t border-brand-border max-w-[200px]">
+                <p className="font-sans text-[10px] text-brand-slate uppercase tracking-widest leading-relaxed font-bold">
+                  Engineered in Nashik. <br />
+                  Deployed Globally.
+                </p>
+              </div>
+            </motion.div>
+          </div>
+          
+          {/* Right: Detailed Narrative & Pillars */}
+          <div className="lg:w-2/3 space-y-32">
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="font-sans text-xl text-brand-slate font-light leading-relaxed mb-10"
+              className="max-w-2xl"
             >
-              Founded to redefine the industrial landscape in Nashik, Magnus Enterprises has evolved into a tier-1 partner for companies that demand zero margin for error. Our philosophy is rooted in the belief that absolute accuracy is the only standard worth pursuing.
-            </motion.p>
-            <div className="grid grid-cols-2 gap-12 pt-10 border-t border-brand-border">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-              >
-                <h4 className="font-space text-2xl font-bold mb-3 uppercase tracking-tight flex items-center gap-2">
-                  <span className="text-lime text-xs">●</span> Vision
-                </h4>
-                <p className="font-sans text-sm text-brand-slate leading-relaxed">
-                  Our objective is to provide the best value by delivering the most flexible and scalable solutions for the companies on the move.
-                </p>
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: 0.3 }}
-              >
-                <h4 className="font-space text-2xl font-bold mb-3 uppercase tracking-tight flex items-center gap-2">
-                  <span className="text-lime text-xs">●</span> Mission
-                </h4>
-                <p className="font-sans text-sm text-brand-slate leading-relaxed">
-                  We are committed in making Magnus the team that will win the trust of business leaders for all their Product needs.
-                </p>
-              </motion.div>
+              <h3 className="font-sans text-2xl font-light text-brand-dark leading-relaxed mb-10">
+                Magnus Enterprises is a <span className="font-bold underline decoration-lime decoration-4 underline-offset-8">high-precision</span> manufacturing hub dedicated to the electrical, switchgear, and heavy engineering sectors.
+              </h3>
+              <p className="font-sans text-lg text-brand-slate leading-relaxed font-light">
+                Since 2012, we have specialized in bridging the gap between complex design and physical reality. Our operations are governed by a single metric: <span className="text-brand-dark font-bold italic">Geometric Fidelity.</span>
+              </p>
+            </motion.div>
+            
+            <div className="grid sm:grid-cols-2 gap-x-12 gap-y-24">
+              {philosophy.map((item, index) => (
+                <motion.div 
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className="group relative"
+                >
+                  {/* HUD Corner Accent */}
+                  <div className="absolute -top-4 -left-4 w-6 h-6 border-t border-l border-brand-border group-hover:border-lime transition-colors duration-500"></div>
+                  
+                  <div className="flex flex-col gap-6 pt-4">
+                    <div className="w-12 h-12 flex items-center justify-center bg-off-white border border-brand-border text-brand-dark group-hover:bg-brand-dark group-hover:text-lime transition-all duration-500">
+                      <item.icon size={20} />
+                    </div>
+                    <h4 className="font-space text-xl font-bold text-brand-dark uppercase tracking-tight">{item.title}</h4>
+                    <p className="font-sans text-[11px] text-brand-slate leading-relaxed uppercase tracking-[2px] font-bold">
+                      {item.description}
+                    </p>
+                  </div>
+                </motion.div>
+              ))}
             </div>
+            
+            {/* Technical Schematic Image Container */}
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.98 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              className="relative aspect-video bg-off-white overflow-hidden border border-brand-border group shadow-2xl"
+            >
+              <img 
+                src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&q=80&w=2000" 
+                alt="Process Precision" 
+                className="w-full h-full object-cover grayscale brightness-90 contrast-125 group-hover:scale-105 transition-transform duration-1000"
+              />
+              {/* Technical Overlay */}
+              <div className="absolute inset-0 bg-lime/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              
+              {/* Decorative Scanning line for this image only */}
+              <motion.div 
+                animate={{ x: ['-100%', '100%'] }}
+                transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+                className="absolute top-0 bottom-0 w-[1px] bg-lime/30 z-10 pointer-events-none shadow-[0_0_10px_#CCFF00]"
+              ></motion.div>
+            </motion.div>
           </div>
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1 }}
-            className="relative aspect-[4/5] bg-brand-dark overflow-hidden group border border-lime/20"
-          >
-            <img 
-              src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&q=80&w=1200"
-              alt="Precision Fabrication"
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
-              referrerPolicy="no-referrer"
-            />
-            <div className="absolute inset-0 ring-1 ring-inset ring-white/10"></div>
-          </motion.div>
+          
         </div>
       </div>
     </section>

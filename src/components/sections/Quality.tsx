@@ -1,42 +1,51 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { Award } from 'lucide-react';
+import { Shield, CheckCircle } from 'lucide-react';
 
 export default function Quality() {
   return (
-    <section className="py-32 px-[5%] bg-brand-dark text-white border-b border-white/5 relative overflow-hidden snap-start">
+    <section className="py-32 px-[5%] bg-black text-white border-b border-white/5 relative overflow-hidden scroll-mt-[100px]">
       <div className="absolute inset-0 bg-dots text-white opacity-[0.02] pointer-events-none"></div>
-      <div className="max-w-4xl mx-auto text-center relative z-10 space-y-10">
-        <motion.div 
-          initial={{ scale: 0.8, opacity: 0 }}
-          whileInView={{ scale: 1, opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ type: "spring", stiffness: 100 }}
-          className="w-24 h-24 mx-auto border-2 border-lime/30 rounded-full flex items-center justify-center relative group"
-        >
-          <div className="absolute inset-2 border border-lime/10 rounded-full animate-pulse"></div>
-          <Award className="w-10 h-10 text-lime group-hover:scale-110 transition-transform duration-500" />
-        </motion.div>
-        
-        <motion.h3 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="font-serif text-3xl md:text-5xl font-light italic leading-tight text-white/90"
-        >
-          "Quality is not an act, it is a habit. In our workshop, it is the law."
-        </motion.h3>
-        
-        <motion.div 
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.4 }}
-          className="font-sans text-[10px] font-bold tracking-[8px] uppercase text-lime"
-        >
-          ISO 9001:2015 Certificated Facility // Nashik
-        </motion.div>
+      
+      <div className="container-custom relative z-10">
+        <div className="max-w-3xl mx-auto flex flex-col items-center text-center">
+          <div className="w-full">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="space-y-8 flex flex-col items-center"
+            >
+              <h2 className="font-space text-[clamp(28px,3.5vw,48px)] leading-[1.2] font-bold uppercase tracking-tighter italic text-center">
+                "Quality is not an act, it is a habit. <br />
+                In our workshop, <span className="text-lime">it is the law.</span>"
+              </h2>
+              
+              <div className="flex flex-col gap-1 items-center">
+                <span className="font-space text-2xl font-bold tracking-tight text-white uppercase">
+                  ISO 9001:2015
+                </span>
+                <span className="font-sans text-sm font-bold text-gray-500 uppercase tracking-[4px]">
+                  Certificated Facility
+                </span>
+              </div>
+            </motion.div>
+
+            <div className="grid sm:grid-cols-2 gap-8 mt-16 max-w-2xl mx-auto w-full">
+              {[
+                "Multi-stage micron inspection",
+                "Calibrated measuring instruments",
+                "Raw material traceability",
+                "Zero-defect delivery policy"
+              ].map((item, i) => (
+                <div key={i} className="flex items-center gap-3 justify-center">
+                  <CheckCircle size={16} className="text-lime opacity-40 flex-shrink-0" />
+                  <span className="font-sans text-[10px] font-bold uppercase tracking-[2px] text-gray-400">{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
