@@ -51,9 +51,9 @@ export default function Footer({
             </motion.a>
           ))}
         </div>
-        <div className="pt-12 border-t border-brand-border flex flex-col md:flex-row justify-between items-center gap-8 font-sans text-[9px] font-bold tracking-[6px] uppercase text-brand-slate/30">
-          <span className="text-center md:text-left">© 2026 Magnus Enterprises // Nashik, India // ISO 9001:2015</span>
-          <span className="text-brand-slate/50 tracking-[4px] hover:text-lime transition-colors cursor-default">Precision Manufacturing Baseline</span>
+        <div className="pt-12 border-t border-brand-border flex flex-col md:flex-row justify-between items-center gap-8 font-sans text-[9px] font-bold tracking-[6px] uppercase text-brand-slate/30 not-italic">
+          <span className="text-center md:text-left">© 2026 Magnus Enterprises | Nashik, India | ISO 9001:2015</span>
+          <span className="text-brand-slate/50 tracking-[4px] hover:text-lime transition-colors cursor-default">Forged by Beforth</span>
         </div>
       </div>
     </footer>
