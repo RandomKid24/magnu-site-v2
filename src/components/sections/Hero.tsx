@@ -43,7 +43,7 @@ export default function Hero({
             initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.3, duration: 1, ease: [0.16, 1, 0.3, 1] }}
-            className="font-space text-5xl md:text-7xl font-bold tracking-tighter text-white uppercase"
+            className="font-space text-4xl md:text-6xl font-bold tracking-tighter text-white uppercase"
           >
             Magnus
           </motion.h1>
@@ -62,7 +62,7 @@ export default function Hero({
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.8, duration: 1 }}
-          className="font-sans text-[9px] md:text-[11px] text-white/50 tracking-[5px] md:tracking-[7px] uppercase max-w-md mb-12 font-medium"
+          className="font-sans text-[9px] md:text-[11px] text-gray-400 tracking-[5px] md:tracking-[7px] uppercase max-w-md mb-12 font-medium"
         >
           Engineering for the Micron Absolute
         </motion.p>
@@ -77,7 +77,7 @@ export default function Hero({
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={(e) => scrollToId(e, 'about')}
-            className="border border-white/20 hover:border-lime bg-transparent hover:bg-lime text-white hover:text-brand-dark font-bold text-[11px] tracking-[4px] uppercase px-16 py-5 transition-all duration-700 font-sans cursor-pointer shadow-[0_0_20px_rgba(255,255,255,0.02)]"
+            className="border border-white/20 hover:border-lime bg-transparent hover:bg-lime text-white hover:text-black font-bold text-[11px] tracking-[4px] uppercase px-12 py-4 transition-all duration-700 font-sans cursor-pointer shadow-sm"
           >
             Explore Site
           </motion.button>
@@ -86,7 +86,7 @@ export default function Hero({
 
       {/* Scroll indicator */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-20 opacity-60">
-        <span className="font-sans text-[8px] font-bold tracking-[4px] uppercase text-white/40">Scroll</span>
+        <span className="font-sans text-[8px] font-bold tracking-[4px] uppercase text-gray-500">Scroll</span>
         <motion.div 
           animate={{ y: [0, 8, 0] }}
           transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}

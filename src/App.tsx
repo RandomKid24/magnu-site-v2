@@ -10,6 +10,10 @@ import Products from './components/sections/Products';
 import Gallery from './components/sections/Gallery';
 import Quality from './components/sections/Quality';
 import Contact from './components/sections/Contact';
+import Features from './components/sections/Features';
+import USPs from './components/sections/USPs';
+import Industries from './components/sections/Industries';
+import Customers from './components/sections/Customers';
 
 const App = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
@@ -38,17 +42,29 @@ const App = () => {
         scrollToId={scrollToId}
       />
 
-      {/* Philosophy Section */}
+      {/* Why Choose Us? */}
+      <Features />
+
+      {/* Product Portfolio */}
+      <Products />
+
+      {/* Our USP's */}
+      <USPs />
+
+      {/* Philosophy Section (Mission/Vision) */}
       <About />
 
-      {/* Fleet Section */}
-      <Fleet />
+      {/* Customers */}
+      <Customers />
 
       {/* Solutions Grid */}
       <Services />
 
-      {/* Product Portfolio */}
-      <Products />
+      {/* Sectors we work in */}
+      <Industries />
+
+      {/* Fleet Section (Machinery) */}
+      <Fleet />
 
       {/* Process Gallery */}
       <Gallery />

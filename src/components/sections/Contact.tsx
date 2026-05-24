@@ -13,10 +13,10 @@ export default function Contact() {
   };
 
   return (
-    <section className="py-40 px-[5%] bg-white scroll-mt-[100px]" id="contact">
+    <section className="py-20 px-[5%] bg-white scroll-mt-[100px]" id="contact">
       <div className="container-custom">
         <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-24 items-start">
+          <div className="grid lg:grid-cols-2 gap-12 items-start">
             <div>
               <motion.div 
                 initial={{ opacity: 0, x: -20 }}

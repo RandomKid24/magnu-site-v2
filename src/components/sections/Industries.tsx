@@ -3,22 +3,22 @@ import { industries } from '@/src/constants';
 
 export default function Industries() {
   return (
-    <section id="industries" className="py-24 bg-white overflow-hidden border-t border-slate-950">
+    <section id="industries" className="py-16 bg-white overflow-hidden border-t border-slate-950">
       <div className="container mx-auto px-6">
-        <div className="flex flex-col lg:flex-row gap-20 mb-24 items-start">
+        <div className="flex flex-col lg:flex-row gap-12 mb-16 items-start">
            <div className="lg:w-1/2">
               <div className="inline-flex items-center gap-4 mb-8">
                  <span className="w-10 h-px bg-slate-950/20" />
-                 <span className="text-[10px] font-black text-slate-400 uppercase tracking-[0.5em]">Sector Mapping</span>
+                 <span className="text-[10px] font-black text-slate-400 uppercase tracking-[0.5em]">Our Sectors</span>
               </div>
-              <h2 className="text-6xl md:text-9xl font-black text-slate-950 leading-[0.8] tracking-tighter uppercase">
-                 Industrial <br />
-                 <span className="text-lime-dark">Vertics.</span>
+              <h2 className="text-5xl md:text-7xl font-bold text-slate-950 leading-[0.85] tracking-tighter uppercase">
+                 Sectors We <br />
+                 <span className="text-lime-dark">Work In.</span>
               </h2>
            </div>
            <div className="lg:w-1/2 lg:pt-10">
               <p className="text-slate-500 font-medium text-xl leading-relaxed max-w-md border-l-4 border-slate-100 pl-8">
-                 We provide strategic manufacturing support for high-stakes industrial sectors, delivering precision components that meet the most demanding engineering specifications.
+                 We provide precision manufacturing solutions tailored to the unique demands of multiple critical industries.
               </p>
            </div>
         </div>
@@ -31,13 +31,13 @@ export default function Industries() {
                whileInView={{ opacity: 1, y: 0 }}
                viewport={{ once: true }}
                transition={{ delay: i * 0.05 }}
-               className="group relative bg-white p-12 lg:p-16 hover:bg-lime transition-all duration-500 min-h-[320px] flex flex-col justify-start overflow-hidden"
+               className="group relative bg-white p-8 hover:bg-lime transition-all duration-500 min-h-[240px] flex flex-col justify-start overflow-hidden"
              >
                 {/* Structural Grid Background */}
                 <div className="absolute inset-0 industrial-pattern opacity-[0.03] group-hover:opacity-[0.1] transition-opacity" />
                 
                 <div className="relative z-10">
-                   <h4 className="text-3xl font-black text-slate-950 leading-none uppercase tracking-tighter mb-8 group-hover:translate-x-2 transition-transform duration-500">
+                   <h4 className="text-2xl font-bold text-slate-950 leading-none uppercase tracking-tighter mb-4 group-hover:translate-x-1 transition-transform duration-500">
                       {industry}
                    </h4>
                    

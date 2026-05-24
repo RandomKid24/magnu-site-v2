@@ -135,11 +135,34 @@ export const products = [
 ];
 
 export const industries = [
-  "Electrical & Switchgear Industry",
-  "Industrial Manufacturing",
-  "Engineering & Fabrication",
-  "Machinery & Equipment Manufacturers",
-  "Custom Engineering Applications"
+  "Switchgear electrical",
+  "Automobile",
+  "Agriculture",
+  "Poultry",
+  "Aeronautics"
+];
+
+export const usps = [
+  {
+    title: "Precision Engineering",
+    description: "Delivering exact geometric fidelity with state-of-the-art CNC machining."
+  },
+  {
+    title: "Rapid Turnaround",
+    description: "Streamlined processes ensuring quick delivery without compromising quality."
+  },
+  {
+    title: "End-to-end Solutions",
+    description: "From prototyping to final assembly, we handle the entire manufacturing lifecycle."
+  }
+];
+
+export const customers = [
+  "Leading Electrical Switchgear Brands",
+  "Top Automobile Manufacturers",
+  "Agricultural Equipment Producers",
+  "Aerospace & Aeronautics Innovators",
+  "Poultry Infrastructure Providers"
 ];
 
 export const qualityEquipment = [

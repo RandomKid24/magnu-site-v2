@@ -4,21 +4,21 @@ import { products } from '../../constants';
 
 export default function Products() {
   return (
-    <section id="products" className="py-40 px-[5%] bg-black overflow-hidden border-b border-white/5 scroll-mt-[100px]">
+    <section id="products" className="py-20 px-[5%] bg-white overflow-hidden border-b border-brand-border scroll-mt-[100px]">
       <div className="container-custom">
-        <div className="flex flex-col lg:flex-row justify-between items-end mb-24 gap-8">
+        <div className="flex flex-col lg:flex-row justify-between items-end mb-12 gap-6">
           <div className="max-w-2xl">
              <div className="flex items-center gap-4 mb-8">
                 <div className="h-[1px] w-12 bg-lime" />
-                <span className="font-sans text-[10px] font-bold text-gray-500 uppercase tracking-[6px]">Component Manifest</span>
+                <span className="font-sans text-[10px] font-bold text-brand-slate uppercase tracking-[6px]">Component Manifest</span>
              </div>
-             <h2 className="font-space text-[clamp(40px,5vw,72px)] leading-[1] text-white tracking-tighter font-bold uppercase">
+             <h2 className="font-space text-[clamp(32px,4vw,56px)] leading-[1.1] text-brand-dark tracking-tighter font-bold uppercase">
                 PRECISION <br />
                 <span className="text-lime">PRODUCT PORTFOLIO.</span>
              </h2>
           </div>
           <div className="text-right">
-            <p className="font-sans text-[10px] text-gray-500 uppercase tracking-[4px] font-bold max-w-xs leading-relaxed">
+            <p className="font-sans text-[10px] text-brand-slate uppercase tracking-[4px] font-bold max-w-xs leading-relaxed">
               "Engineered for reliability, manufactured for <span className="text-lime">micron-level</span> fidelity."
             </p>
           </div>
@@ -32,7 +32,7 @@ export default function Products() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: (i % 4) * 0.05 }}
-              className="group relative aspect-square bg-neutral-900 overflow-hidden cursor-pointer rounded-sm"
+              className="group relative aspect-square bg-off-white overflow-hidden cursor-pointer rounded-sm"
             >
               {/* Image Container */}
               <div className="absolute inset-0 z-10 opacity-70 group-hover:opacity-100 transition-all duration-700 scale-100 group-hover:scale-105">

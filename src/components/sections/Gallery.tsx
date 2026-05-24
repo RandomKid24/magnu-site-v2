@@ -21,12 +21,12 @@ export default function Gallery() {
   ];
 
   return (
-    <section className="py-40 px-[5%] bg-white border-b border-brand-border relative overflow-hidden scroll-mt-[100px]" id="gallery">
+    <section className="py-20 px-[5%] bg-white border-b border-brand-border relative overflow-hidden scroll-mt-[100px]" id="gallery">
       <div className="absolute inset-0 bg-dots text-brand-border opacity-[0.1] pointer-events-none"></div>
 
       <div className="container-custom relative z-10">
         <div className="max-w-7xl mx-auto">
-          <div className="mb-24 flex flex-col md:flex-row justify-between items-end gap-12">
+          <div className="mb-16 flex flex-col md:flex-row justify-between items-end gap-8">
             <div>
               <motion.div 
                 initial={{ opacity: 0, x: -20 }}
@@ -42,7 +42,7 @@ export default function Gallery() {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="font-space text-[clamp(40px,5vw,72px)] leading-[1] text-brand-dark tracking-tighter font-bold uppercase"
+                className="font-space text-[clamp(32px,4vw,56px)] leading-[1.1] text-brand-dark tracking-tighter font-bold uppercase"
               >
                 THE SHOP <br />
                 <span className="text-lime">FLOOR.</span>
@@ -54,7 +54,7 @@ export default function Gallery() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {images.map((image, i) => (
               <motion.div 
                 key={i}

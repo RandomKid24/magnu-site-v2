@@ -92,3 +92,17 @@ All fluid animations leverage `framer-motion` (imported via `motion/react`) to d
 
 ### 📜 Kinetic Page Scroller
 - A multi-layered background scrolling system uses `useTransform` mapped to `scrollY` coordinates, translating secondary background components at customized rates (`y: grainY`), creating an elegant parallax blueprint effect.
+
+---
+
+## 📋 6. Content Architecture
+
+The site layout strictly follows this sequential structure, presenting simple, direct headings while maintaining the high-fidelity design language:
+1. **Why choose us?** (`Features.tsx`)
+2. **Products** (`Products.tsx`)
+3. **Our USP's** (`USPs.tsx`)
+4. **Our Mission** (`About.tsx` & philosophy constants)
+5. **Customers** (`Customers.tsx`)
+6. **Services** (`Services.tsx`)
+7. **Sectors we work in** (`Industries.tsx` with specific sectors: Switchgear electrical, Automobile, Agriculture, Poultry, Aeronautics)
+8. **Machinery** (`Fleet.tsx`)

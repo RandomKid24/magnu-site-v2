@@ -4,12 +4,12 @@ import { philosophy } from '../../constants';
 
 export default function About() {
   return (
-    <section className="py-40 px-[5%] bg-white relative overflow-hidden scroll-mt-[100px]" id="about">
+    <section className="py-20 px-[5%] bg-white relative overflow-hidden scroll-mt-[100px]" id="about">
       {/* Background technical grid - very subtle */}
       <div className="absolute inset-0 bg-dots opacity-[0.03] pointer-events-none text-brand-dark"></div>
       
       <div className="container-custom relative z-10">
-        <div className="flex flex-col lg:flex-row items-start gap-24">
+        <div className="flex flex-col lg:flex-row items-start gap-12">
           
           {/* Left: Brand Identity (Sticky on Desktop) */}
           <div className="lg:w-1/3 lg:sticky lg:top-[150px]">
@@ -24,7 +24,7 @@ export default function About() {
                 <span className="font-sans text-[10px] font-bold tracking-[8px] text-brand-slate uppercase">Established 2012</span>
               </div>
               
-              <h2 className="font-space text-6xl font-bold text-brand-dark tracking-tighter leading-none uppercase">
+              <h2 className="font-space text-5xl font-bold text-brand-dark tracking-tighter leading-none uppercase">
                 THE <br />
                 <span className="text-lime">MAGNUS</span> <br />
                 CORE.
@@ -40,7 +40,7 @@ export default function About() {
           </div>
           
           {/* Right: Detailed Narrative & Pillars */}
-          <div className="lg:w-2/3 space-y-32">
+          <div className="lg:w-2/3 space-y-16">
             <motion.div 
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}

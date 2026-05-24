@@ -1,71 +1,111 @@
 import { motion } from 'motion/react';
 import { whyChooseUs } from '@/src/constants';
+import { ShieldCheck, Cpu, Target, Users, Box, PenTool, Truck } from 'lucide-react';
 import { cn } from '@/src/lib/utils';
-import { Check } from 'lucide-react';
+
+const icons = [ShieldCheck, Cpu, Target, Users, Box, PenTool, Truck];
+
+const descriptions = [
+  "Our entire manufacturing pipeline is certified to meet rigorous international quality standards.",
+  "Equipped with state-of-the-art machinery capable of handling complex geometries.",
+  "Every component undergoes strict multi-stage inspection using calibrated instruments.",
+  "Our team consists of highly skilled engineers with decades of industrial experience.",
+  "We source only premium materials to manufacture parts that withstand tough environments.",
+  "From prototypes to mass production, our flexible setup adapts to your requirements.",
+  "Streamlined processes and dedicated logistics ensure products are delivered exactly when needed."
+];
+
+// Tailwind classes for the bento grid spans
+const bentoSpans = [
+  "md:col-span-2 md:row-span-2", // 0: Large square
+  "md:col-span-2 md:row-span-1", // 1: Wide rectangle
+  "md:col-span-1 md:row-span-1", // 2: Small square
+  "md:col-span-1 md:row-span-1", // 3: Small square
+  "md:col-span-2 md:row-span-1", // 4: Wide rectangle
+  "md:col-span-1 md:row-span-1", // 5: Small square
+  "md:col-span-1 md:row-span-1", // 6: Small square
+];
 
 export default function Features() {
   return (
-    <section id="why-us" className="py-24 bg-white overflow-hidden border-t border-slate-950">
-      <div className="container mx-auto px-6">
-        <div className="flex flex-col lg:flex-row gap-24 mb-32 items-start">
-           <div className="lg:w-1/2">
-              <h3 className="text-7xl md:text-9xl font-black text-slate-950 leading-[0.75] tracking-tighter uppercase">
-                 Engineered <br />
-                 By <span className="text-lime-dark italic font-normal">Data.</span>
-              </h3>
-           </div>
-           <div className="lg:w-1/2 lg:pt-16">
-              <div className="max-w-md">
-                 <p className="text-slate-500 text-2xl font-medium leading-tight mb-12 tracking-tight">
-                    Our manufacturing protocols are built on three decades of technical iteration and precision engineering feedback.
-                 </p>
-              </div>
-           </div>
-        </div>
+    <section id="why-us" className="py-20 px-[5%] bg-white border-b border-brand-border scroll-mt-[100px]">
+      <div className="container-custom">
+        <div className="max-w-7xl mx-auto">
+          <div className="mb-12">
+            <motion.div 
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="flex items-center gap-4 mb-8"
+            >
+              <div className="h-[1px] w-12 bg-lime"></div>
+              <span className="font-sans text-[10px] font-bold tracking-[6px] uppercase text-brand-slate">Advantages</span>
+            </motion.div>
 
-        <div className="grid lg:grid-cols-12 border-t border-slate-950">
-           {whyChooseUs.map((feature, i) => (
-             <motion.div
-               key={feature}
-               initial={{ opacity: 0 }}
-               whileInView={{ opacity: 1 }}
-               viewport={{ once: true }}
-               transition={{ delay: i * 0.05 }}
-               className={cn(
-                 "group relative p-12 lg:p-20 border-b border-slate-950 overflow-hidden",
-                 i % 2 === 0 ? "lg:col-span-7 lg:border-r" : "lg:col-span-5"
-               )}
-             >
-                {/* Micro BG Marker */}
-                <div className="absolute top-10 right-10 text-[100px] font-black text-slate-50 group-hover:text-lime/10 transition-colors leading-none pointer-events-none uppercase">
-                  {feature.charAt(0)}
-                </div>
+            <motion.h2 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="font-space text-[clamp(32px,4vw,56px)] leading-[1.1] text-brand-dark tracking-tighter font-bold uppercase"
+            >
+               Why Choose <br />
+               <span className="text-lime">Us?</span>
+            </motion.h2>
+          </div>
 
-                <div className="relative z-10 flex flex-col h-full">
-                   <div className="flex items-center gap-4 mb-12">
-                      <div className="w-8 h-8 rounded-full border border-slate-200 flex items-center justify-center group-hover:bg-lime group-hover:border-lime transition-all">
-                         <Check className="w-3 h-3 text-slate-300 group-hover:text-black" strokeWidth={3} />
-                      </div>
-                   </div>
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-4 auto-rows-[240px]">
+            {whyChooseUs.map((feature, index) => {
+              const Icon = icons[index % icons.length];
+              const spanClass = bentoSpans[index];
+              const isLarge = index === 0;
 
-                   <h4 className="text-3xl lg:text-5xl font-black text-slate-950 uppercase tracking-tighter leading-none mb-8 group-hover:translate-x-4 transition-transform duration-500">
-                      {feature}
-                   </h4>
+              return (
+                <motion.div 
+                  key={index}
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.05 }}
+                  className={cn(
+                    "bg-off-white border border-brand-border hover:border-lime/50 transition-all duration-500 group flex flex-col justify-between relative overflow-hidden",
+                    spanClass,
+                    isLarge ? "p-12" : "p-8"
+                  )}
+                >
+                  {/* Subtle Background Icon for Bento Feel */}
+                  <div className="absolute -right-12 -bottom-12 opacity-[0.03] group-hover:opacity-[0.08] transition-opacity duration-500 pointer-events-none">
+                    <Icon size={isLarge ? 300 : 160} />
+                  </div>
 
-                   <p className="text-slate-500 text-lg font-medium leading-relaxed max-w-sm mb-12 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                      Certified industrial implementation across all Nashik and regional manufacturing facilities.
-                   </p>
-
-                   <div className="mt-auto flex items-center gap-2">
-                       <div className="w-2 h-2 bg-slate-900 group-hover:bg-lime transition-colors" />
-                       <div className="w-12 h-[1px] bg-slate-100 group-hover:bg-slate-950 transition-colors" />
-                   </div>
-                </div>
-             </motion.div>
-           ))}
+                  <div className="relative z-10 flex flex-col h-full justify-between">
+                    <div className={cn(
+                      "flex items-center justify-center border border-brand-border text-brand-slate group-hover:text-lime group-hover:bg-brand-dark transition-colors duration-500 bg-white",
+                      isLarge ? "w-16 h-16 mb-12" : "w-12 h-12 mb-8"
+                    )}>
+                      <Icon size={isLarge ? 28 : 20} />
+                    </div>
+                    
+                    <div>
+                      <h3 className={cn(
+                        "font-space font-bold text-brand-dark transition-colors uppercase tracking-tight mb-3",
+                        isLarge ? "text-3xl lg:text-4xl" : "text-xl"
+                      )}>
+                        {feature}
+                      </h3>
+                      <p className={cn(
+                        "font-sans text-brand-slate leading-relaxed font-medium",
+                        isLarge ? "text-sm max-w-md" : "text-xs max-w-[240px]"
+                      )}>
+                        {descriptions[index]}
+                      </p>
+                    </div>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>
   );
 }
-
