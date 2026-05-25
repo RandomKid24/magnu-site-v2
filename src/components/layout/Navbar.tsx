@@ -57,7 +57,7 @@ export default function Navbar({
       <nav 
         className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-[5%] h-[100px] border-b transition-all duration-500 ${
           isScrolled 
-            ? 'border-brand-border bg-white/95 backdrop-blur-md' 
+            ? 'border-white/10 bg-black/95 backdrop-blur-md' 
             : 'border-white/10 bg-transparent'
         }`}
       >
@@ -70,11 +70,11 @@ export default function Navbar({
             <img src="/logo.png" alt="Magnus Logo" className="w-full h-full object-contain" />
           </div>
           <div className="flex flex-col -space-y-1.5">
-            <span className={`font-space text-2xl font-bold tracking-tighter uppercase transition-colors duration-500 ${isScrolled ? 'text-brand-dark' : 'text-white'}`}>
+            <span className={`font-space text-2xl font-bold tracking-tighter uppercase transition-colors duration-500 ${isScrolled ? 'text-white' : 'text-white'}`}>
               Magnus
             </span>
             <span className="font-sans text-[8px] font-bold tracking-[4px] uppercase text-lime">
-              Enterprises <span className={`transition-colors duration-500 ${isScrolled ? 'text-brand-dark' : 'text-white'}`}>.</span>
+              Enterprises <span className={`transition-colors duration-500 ${isScrolled ? 'text-white' : 'text-white'}`}>.</span>
             </span>
           </div>
         </motion.div>
@@ -92,7 +92,7 @@ export default function Navbar({
                   className={`text-[11px] font-bold tracking-[3px] uppercase transition-colors duration-500 font-sans ${
                     isActive 
                       ? (isScrolled ? 'text-lime-dark' : 'text-lime') 
-                      : (isScrolled ? 'text-brand-dark hover:text-lime-dark' : 'text-white/70 hover:text-lime')
+                      : (isScrolled ? 'text-white hover:text-lime-dark' : 'text-white/70 hover:text-lime')
                   }`}
                   onClick={(e) => scrollToId(e, id)}
                 >
@@ -110,7 +110,7 @@ export default function Navbar({
           })}
         </ul>
 
-        <button className={`lg:hidden p-2 transition-colors duration-500 ${isScrolled ? 'text-brand-dark' : 'text-white'}`} onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+        <button className={`lg:hidden p-2 transition-colors duration-500 ${isScrolled ? 'text-white' : 'text-white'}`} onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
           {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </nav>
@@ -122,9 +122,9 @@ export default function Navbar({
             initial={{ opacity: 0, x: '100%' }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: '100%' }}
-            className="fixed inset-0 bg-white z-[60] flex flex-col items-center justify-start lg:justify-center overflow-y-auto space-y-8 lg:space-y-12 p-10 py-24"
+            className="fixed inset-0 bg-black z-[60] flex flex-col items-center justify-start lg:justify-center overflow-y-auto space-y-8 lg:space-y-12 p-10 py-24"
           >
-            <button className="absolute top-10 right-10 text-brand-dark" onClick={() => setIsMobileMenuOpen(false)}>
+            <button className="absolute top-10 right-10 text-white" onClick={() => setIsMobileMenuOpen(false)}>
               <X size={32} />
             </button>
             {['About', 'Fleet', 'Solutions', 'Products', 'Gallery', 'Contact'].map((item) => {
@@ -135,7 +135,7 @@ export default function Navbar({
                   whileHover={{ scale: 1.1, color: "#CCFF00" }}
                   whileTap={{ scale: 0.9 }}
                   href={`#${id}`} 
-                  className="font-space text-4xl font-bold text-brand-dark transition-colors uppercase"
+                  className="font-space text-4xl font-bold text-white transition-colors uppercase"
                   onClick={(e) => {
                     setIsMobileMenuOpen(false);
                     scrollToId(e, id);

@@ -27,7 +27,7 @@ const App = () => {
   };
 
   return (
-    <div className="bg-off-white text-brand-dark min-h-screen scroll-smooth">
+    <div className="bg-zinc-950 text-white min-h-screen scroll-smooth">
       <ScrollProgress />
       
       {/* Navigation */}

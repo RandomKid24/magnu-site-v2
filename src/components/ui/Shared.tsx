@@ -13,7 +13,7 @@ export const SectionHeader = ({ subtitle, title, light = false }: { subtitle: st
       className="flex items-center gap-4 mb-4"
     >
       <div className={cn("w-[3px] h-6", light ? "bg-white/30" : "bg-lime")}></div>
-      <span className={cn("font-sans text-[11px] font-bold tracking-[5px] uppercase", light ? "text-white/50" : "text-brand-slate")}>
+      <span className={cn("font-sans text-[11px] font-bold tracking-[5px] uppercase", light ? "text-white/50" : "text-gray-400")}>
         {subtitle}
       </span>
     </motion.div>
@@ -22,7 +22,7 @@ export const SectionHeader = ({ subtitle, title, light = false }: { subtitle: st
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-      className={cn("font-space text-5xl md:text-7xl font-bold leading-tight tracking-tighter uppercase", light ? "text-white" : "text-brand-dark")}
+      className={cn("font-space text-5xl md:text-7xl font-bold leading-tight tracking-tighter uppercase", light ? "text-white" : "text-white")}
     >
       {title}
     </motion.h2>

@@ -4,8 +4,8 @@ import { Shield, CheckCircle } from 'lucide-react';
 
 export default function Quality() {
   return (
-    <section className="py-20 px-[5%] bg-white text-brand-dark border-b border-brand-border relative overflow-hidden scroll-mt-[100px]">
-      <div className="absolute inset-0 bg-dots text-brand-dark opacity-[0.02] pointer-events-none"></div>
+    <section className="py-20 px-[5%] bg-black text-white border-b border-white/10 relative overflow-hidden scroll-mt-[100px]">
+      <div className="absolute inset-0 bg-dots text-white opacity-[0.02] pointer-events-none"></div>
       
       <div className="container-custom relative z-10">
         <div className="max-w-3xl mx-auto flex flex-col items-center text-center">
@@ -22,10 +22,10 @@ export default function Quality() {
               </h2>
               
               <div className="flex flex-col gap-1 items-center">
-                <span className="font-space text-2xl font-bold tracking-tight text-brand-dark uppercase">
+                <span className="font-space text-2xl font-bold tracking-tight text-white uppercase">
                   ISO 9001:2015
                 </span>
-                <span className="font-sans text-sm font-bold text-brand-slate uppercase tracking-[4px]">
+                <span className="font-sans text-sm font-bold text-gray-400 uppercase tracking-[4px]">
                   Certificated Facility
                 </span>
               </div>
@@ -40,7 +40,7 @@ export default function Quality() {
               ].map((item, i) => (
                 <div key={i} className="flex items-center gap-3 justify-center">
                   <CheckCircle size={16} className="text-lime opacity-40 flex-shrink-0" />
-                  <span className="font-sans text-[10px] font-bold uppercase tracking-[2px] text-brand-slate">{item}</span>
+                  <span className="font-sans text-[10px] font-bold uppercase tracking-[2px] text-gray-400">{item}</span>
                 </div>
               ))}
             </div>

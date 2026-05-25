@@ -12,7 +12,7 @@ export default function LoadingScreen({ onFinished }: { onFinished: () => void }
     <motion.div
       initial={{ opacity: 1 }}
       exit={{ opacity: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } }}
-      className="fixed inset-0 z-[100] bg-white flex flex-col items-center justify-center"
+      className="fixed inset-0 z-[100] bg-black flex flex-col items-center justify-center"
     >
       <div className="relative flex flex-col items-center">
         {/* Logo Image */}
@@ -35,7 +35,7 @@ export default function LoadingScreen({ onFinished }: { onFinished: () => void }
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.4, duration: 0.8 }}
-            className="font-space text-4xl font-bold tracking-tighter text-brand-dark uppercase"
+            className="font-space text-4xl font-bold tracking-tighter text-white uppercase"
           >
             Magnus
           </motion.span>
@@ -45,7 +45,7 @@ export default function LoadingScreen({ onFinished }: { onFinished: () => void }
             transition={{ delay: 0.6, duration: 0.8 }}
             className="font-sans text-[10px] font-bold tracking-[6px] uppercase text-lime"
           >
-            Enterprises <span className="text-brand-dark">.</span>
+            Enterprises <span className="text-white">.</span>
           </motion.span>
         </div>
       </div>

@@ -28,7 +28,7 @@ const bentoSpans = [
 
 export default function Features() {
   return (
-    <section id="why-us" className="py-20 px-[5%] bg-white border-b border-brand-border scroll-mt-[100px]">
+    <section id="why-us" className="py-20 px-[5%] bg-black border-b border-white/10 scroll-mt-[100px]">
       <div className="container-custom">
         <div className="max-w-7xl mx-auto">
           <div className="mb-12">
@@ -39,14 +39,14 @@ export default function Features() {
               className="flex items-center gap-4 mb-8"
             >
               <div className="h-[1px] w-12 bg-lime"></div>
-              <span className="font-sans text-[10px] font-bold tracking-[6px] uppercase text-brand-slate">Advantages</span>
+              <span className="font-sans text-[10px] font-bold tracking-[6px] uppercase text-gray-400">Advantages</span>
             </motion.div>
 
             <motion.h2 
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="font-space text-[clamp(32px,4vw,56px)] leading-[1.1] text-brand-dark tracking-tighter font-bold uppercase"
+              className="font-space text-[clamp(32px,4vw,56px)] leading-[1.1] text-white tracking-tighter font-bold uppercase"
             >
                Why Choose <br />
                <span className="text-lime">Us?</span>
@@ -67,7 +67,7 @@ export default function Features() {
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.05 }}
                   className={cn(
-                    "bg-off-white border border-brand-border hover:border-lime/50 transition-all duration-500 group flex flex-col justify-between relative overflow-hidden",
+                    "bg-zinc-950 border border-white/10 hover:border-lime/50 transition-all duration-500 group flex flex-col justify-between relative overflow-hidden",
                     spanClass,
                     isLarge ? "p-12" : "p-8"
                   )}
@@ -79,7 +79,7 @@ export default function Features() {
 
                   <div className="relative z-10 flex flex-col h-full justify-between">
                     <div className={cn(
-                      "flex items-center justify-center border border-brand-border text-brand-slate group-hover:text-lime group-hover:bg-brand-dark transition-colors duration-500 bg-white",
+                      "flex items-center justify-center border border-white/10 text-gray-400 group-hover:text-lime group-hover:bg-brand-dark transition-colors duration-500 bg-black",
                       isLarge ? "w-16 h-16 mb-12" : "w-12 h-12 mb-8"
                     )}>
                       <Icon size={isLarge ? 28 : 20} />
@@ -87,13 +87,13 @@ export default function Features() {
                     
                     <div>
                       <h3 className={cn(
-                        "font-space font-bold text-brand-dark transition-colors uppercase tracking-tight mb-3",
+                        "font-space font-bold text-white transition-colors uppercase tracking-tight mb-3",
                         isLarge ? "text-3xl lg:text-4xl" : "text-xl"
                       )}>
                         {feature}
                       </h3>
                       <p className={cn(
-                        "font-sans text-brand-slate leading-relaxed font-medium",
+                        "font-sans text-gray-400 leading-relaxed font-medium",
                         isLarge ? "text-sm max-w-md" : "text-xs max-w-[240px]"
                       )}>
                         {descriptions[index]}

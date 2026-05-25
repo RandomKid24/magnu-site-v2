@@ -19,12 +19,12 @@
     @apply bg-lime text-brand-dark;
   }
   body {
-    @apply bg-off-white text-brand-dark antialiased overflow-x-hidden relative;
+    @apply bg-zinc-950 text-white antialiased overflow-x-hidden relative;
   }
 }
 
 .nav-link {
-  @apply relative text-[11px] font-bold tracking-[3px] uppercase text-brand-dark transition-colors duration-500 font-sans;
+  @apply relative text-[11px] font-bold tracking-[3px] uppercase text-white transition-colors duration-500 font-sans;
 }
 
 .nav-link::after {
@@ -41,11 +41,11 @@
 }
 
 .btn-primary-custom {
-  @apply bg-brand-dark text-white font-bold text-[11px] tracking-[3px] uppercase px-12 py-5 transition-all duration-700 hover:bg-lime hover:text-brand-dark;
+  @apply bg-white text-brand-dark font-bold text-[11px] tracking-[3px] uppercase px-12 py-5 transition-all duration-700 hover:bg-lime hover:text-brand-dark;
 }
 
 .btn-outline-custom {
-  @apply bg-transparent text-brand-dark font-bold text-[11px] tracking-[3px] uppercase border border-brand-dark px-12 py-5 transition-all duration-700 hover:border-lime hover:text-lime;
+  @apply bg-transparent text-white font-bold text-[11px] tracking-[3px] uppercase border border-white/20 px-12 py-5 transition-all duration-700 hover:border-lime hover:text-lime;
 }
 
 .footer-link {

@@ -21,7 +21,7 @@ export default function Gallery() {
   ];
 
   return (
-    <section className="py-20 px-[5%] bg-white border-b border-brand-border relative overflow-hidden scroll-mt-[100px]" id="gallery">
+    <section className="py-20 px-[5%] bg-black border-b border-white/10 relative overflow-hidden scroll-mt-[100px]" id="gallery">
       <div className="absolute inset-0 bg-dots text-brand-border opacity-[0.1] pointer-events-none"></div>
 
       <div className="container-custom relative z-10">
@@ -35,21 +35,21 @@ export default function Gallery() {
                 className="flex items-center gap-4 mb-8"
               >
                 <div className="h-[1px] w-12 bg-lime"></div>
-                <span className="font-sans text-[10px] font-bold tracking-[6px] uppercase text-brand-slate">Visuals</span>
+                <span className="font-sans text-[10px] font-bold tracking-[6px] uppercase text-gray-400">Visuals</span>
               </motion.div>
 
               <motion.h2 
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="font-space text-[clamp(32px,4vw,56px)] leading-[1.1] text-brand-dark tracking-tighter font-bold uppercase"
+                className="font-space text-[clamp(32px,4vw,56px)] leading-[1.1] text-white tracking-tighter font-bold uppercase"
               >
                 THE SHOP <br />
                 <span className="text-lime">FLOOR.</span>
               </motion.h2>
             </div>
             
-            <p className="font-sans text-[10px] font-bold text-brand-slate tracking-[4px] uppercase max-w-[200px] leading-relaxed">
+            <p className="font-sans text-[10px] font-bold text-gray-400 tracking-[4px] uppercase max-w-[200px] leading-relaxed">
               Capturing the <span className="text-lime">raw precision</span> of our daily operations.
             </p>
           </div>
@@ -64,7 +64,7 @@ export default function Gallery() {
                 transition={{ delay: i * 0.1 }}
                 className="group cursor-pointer"
               >
-                <div className="aspect-[3/4] overflow-hidden bg-off-white mb-6 relative border border-brand-border shadow-lg">
+                <div className="aspect-[3/4] overflow-hidden bg-zinc-950 mb-6 relative border border-white/10 shadow-lg">
                   <img 
                     src={image.url} 
                     alt={image.title} 

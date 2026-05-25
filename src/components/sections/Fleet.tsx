@@ -4,7 +4,7 @@ import { machinery } from '../../constants';
 
 export default function Fleet() {
   return (
-    <section className="py-20 px-[5%] bg-white relative overflow-hidden scroll-mt-[100px]" id="fleet">
+    <section className="py-20 px-[5%] bg-black relative overflow-hidden scroll-mt-[100px]" id="fleet">
       <div className="absolute inset-0 bg-dots text-lime opacity-[0.05] pointer-events-none"></div>
 
       <div className="container-custom relative z-10">
@@ -18,14 +18,14 @@ export default function Fleet() {
                 className="flex items-center gap-4 mb-8"
               >
                 <div className="h-[1px] w-12 bg-lime"></div>
-                <span className="font-sans text-[10px] font-bold tracking-[6px] uppercase text-brand-slate">Infrastructure</span>
+                <span className="font-sans text-[10px] font-bold tracking-[6px] uppercase text-gray-400">Infrastructure</span>
               </motion.div>
 
               <motion.h2 
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="font-space text-[clamp(32px,4vw,56px)] leading-[1.1] text-brand-dark tracking-tighter font-bold uppercase"
+                className="font-space text-[clamp(32px,4vw,56px)] leading-[1.1] text-white tracking-tighter font-bold uppercase"
               >
                 OUR PRECISION <br />
                 <span className="text-lime">MACHINERY.</span>
@@ -37,14 +37,14 @@ export default function Fleet() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="font-sans text-[10px] text-brand-slate uppercase tracking-[4px] font-bold max-w-xs mb-4 leading-relaxed"
+                className="font-sans text-[10px] text-gray-400 uppercase tracking-[4px] font-bold max-w-xs mb-4 leading-relaxed"
               >
                 Tier-1 equipment maintained to <span className="text-lime">micron-level</span> accuracy standards.
               </motion.p>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-brand-border border border-brand-border shadow-2xl relative">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-white/5 border border-white/10 shadow-2xl relative">
             {machinery.map((machine, i) => (
               <motion.div 
                 key={i}
@@ -52,31 +52,31 @@ export default function Fleet() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="bg-white p-8 flex flex-col group hover:bg-off-white transition-colors duration-700 relative overflow-hidden"
+                className="bg-black p-8 flex flex-col group hover:bg-zinc-950 transition-colors duration-700 relative overflow-hidden"
               >
                 <div className="absolute bottom-0 left-0 w-full h-[2px] bg-lime translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
                 
-                <h3 className="font-space text-2xl font-bold text-brand-dark transition-colors uppercase tracking-tight mb-8 mt-4">{machine}</h3>
+                <h3 className="font-space text-2xl font-bold text-white transition-colors uppercase tracking-tight mb-8 mt-4">{machine}</h3>
               </motion.div>
             ))}
           </div>
 
-          <div className="mt-16 border border-brand-border bg-brand-border overflow-hidden shadow-2xl relative">
+          <div className="mt-16 border border-white/10 bg-white/5 overflow-hidden shadow-2xl relative">
             <div className="overflow-x-auto">
               <table className="w-full text-left">
                 <thead>
-                  <tr className="border-b border-brand-border bg-white text-[10px] font-bold tracking-[3px] uppercase text-brand-slate">
+                  <tr className="border-b border-white/10 bg-black text-[10px] font-bold tracking-[3px] uppercase text-gray-400">
                     <th className="p-8">Machine Class</th>
                     <th className="p-8">Specification</th>
                     <th className="p-8">Primary Application</th>
                   </tr>
                 </thead>
-                <tbody className="text-brand-dark font-sans text-xs">
+                <tbody className="text-white font-sans text-xs">
                   {[1, 2, 3].map((_, i) => (
-                    <tr key={i} className="hover:bg-off-white transition-colors border-b border-brand-border">
+                    <tr key={i} className="hover:bg-zinc-950 transition-colors border-b border-white/10">
                       <td className="p-8 font-bold text-lime uppercase tracking-widest font-space">CNC VMC</td>
-                      <td className="p-8 text-brand-slate font-medium font-space">800x500x500 MM</td>
-                      <td className="p-8 text-brand-slate uppercase tracking-widest font-bold">Complex Profile Milling</td>
+                      <td className="p-8 text-gray-400 font-medium font-space">800x500x500 MM</td>
+                      <td className="p-8 text-gray-400 uppercase tracking-widest font-bold">Complex Profile Milling</td>
                     </tr>
                   ))}
                 </tbody>

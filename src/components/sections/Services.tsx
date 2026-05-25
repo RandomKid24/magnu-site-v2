@@ -4,7 +4,7 @@ import { services } from '../../constants';
 
 export default function Services() {
   return (
-    <section className="py-20 px-[5%] bg-white border-b border-brand-border scroll-mt-[100px]" id="solutions">
+    <section className="py-20 px-[5%] bg-black border-b border-white/10 scroll-mt-[100px]" id="solutions">
       <div className="container-custom">
         <div className="max-w-7xl mx-auto">
           <div className="mb-12">
@@ -15,21 +15,21 @@ export default function Services() {
               className="flex items-center gap-4 mb-8"
             >
               <div className="h-[1px] w-12 bg-lime"></div>
-              <span className="font-sans text-[10px] font-bold tracking-[6px] uppercase text-brand-slate">Capabilities</span>
+              <span className="font-sans text-[10px] font-bold tracking-[6px] uppercase text-gray-400">Capabilities</span>
             </motion.div>
 
             <motion.h2 
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="font-space text-[clamp(32px,4vw,56px)] leading-[1.1] text-brand-dark tracking-tighter font-bold uppercase"
+              className="font-space text-[clamp(32px,4vw,56px)] leading-[1.1] text-white tracking-tighter font-bold uppercase"
             >
               INDUSTRIAL <br />
               <span className="text-lime">SOLUTIONS GRID.</span>
             </motion.h2>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-brand-border border border-brand-border">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-white/5 border border-white/10">
             {services.map((service, index) => (
               <motion.div 
                 key={index}
@@ -37,14 +37,14 @@ export default function Services() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.05 }}
-                className="bg-white p-8 hover:bg-off-white transition-all duration-500 group flex flex-col justify-between min-h-[240px] relative overflow-hidden"
+                className="bg-black p-8 hover:bg-zinc-950 transition-all duration-500 group flex flex-col justify-between min-h-[240px] relative overflow-hidden"
               >
                 <div>
-                  <div className="w-12 h-12 bg-off-white flex items-center justify-center border border-brand-border text-brand-slate group-hover:text-lime group-hover:bg-brand-dark transition-colors duration-500 mb-8">
+                  <div className="w-12 h-12 bg-zinc-950 flex items-center justify-center border border-white/10 text-gray-400 group-hover:text-lime group-hover:bg-brand-dark transition-colors duration-500 mb-8">
                     <service.icon size={20} />
                   </div>
-                  <h3 className="font-space text-xl font-bold text-brand-dark transition-colors uppercase tracking-tight mb-3">{service.title}</h3>
-                  <p className="font-sans text-[11px] text-brand-slate leading-relaxed uppercase tracking-[2px] font-bold max-w-[240px]">
+                  <h3 className="font-space text-xl font-bold text-white transition-colors uppercase tracking-tight mb-3">{service.title}</h3>
+                  <p className="font-sans text-[11px] text-gray-400 leading-relaxed uppercase tracking-[2px] font-bold max-w-[240px]">
                     {service.description}
                   </p>
                 </div>
