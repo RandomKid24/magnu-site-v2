@@ -51,9 +51,6 @@ const App = () => {
       {/* Our USP's */}
       <USPs />
 
-      {/* Philosophy Section (Mission/Vision) */}
-      <About />
-
       {/* Customers */}
       <Customers />
 
@@ -68,6 +65,9 @@ const App = () => {
 
       {/* Process Gallery */}
       <Gallery />
+
+      {/* Philosophy Section (Mission/Vision) */}
+      <About />
 
       {/* Quality Badge */}
       <Quality />

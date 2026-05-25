@@ -34,12 +34,19 @@ export default function Products() {
               transition={{ delay: (i % 4) * 0.05 }}
               className="group relative aspect-square bg-zinc-950 overflow-hidden cursor-pointer rounded-sm"
             >
-              {/* Image Container */}
-              <div className="absolute inset-0 z-10 opacity-70 group-hover:opacity-100 transition-all duration-700 scale-100 group-hover:scale-105">
+              {/* Image Container with Smooth Cross-Fade */}
+              <div className="absolute inset-0 z-10 opacity-70 group-hover:opacity-100 transition-all duration-500 bg-black flex items-center justify-center">
+                 {/* Crop View (Default) */}
                  <img 
                    src={product.image} 
                    alt={product.title}
-                   className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                   className="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:opacity-0 transition-all duration-500"
+                 />
+                 {/* Full View (Hover) */}
+                 <img 
+                   src={product.image} 
+                   alt={product.title}
+                   className="absolute inset-0 w-full h-full object-contain grayscale group-hover:grayscale-0 opacity-0 group-hover:opacity-100 transition-all duration-500 scale-95 group-hover:scale-100"
                  />
               </div>
             </motion.div>

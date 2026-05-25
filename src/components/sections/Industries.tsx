@@ -25,27 +25,33 @@ export default function Industries() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-px bg-white/5 border border-white/10 shadow-[0_0_50px_rgba(0,0,0,0.1)]">
            {industries.map((industry, i) => (
-             <motion.div
-               key={industry}
-               initial={{ opacity: 0, y: 20 }}
-               whileInView={{ opacity: 1, y: 0 }}
-               viewport={{ once: true }}
-               transition={{ delay: i * 0.05 }}
-               className="relative bg-black p-8 min-h-[240px] flex flex-col justify-start overflow-hidden"
-             >
-                {/* Structural Grid Background */}
-                <div className="absolute inset-0 industrial-pattern opacity-[0.03]" />
-                
-                <div className="relative z-10">
-                   <h4 className="text-2xl font-bold text-white leading-none uppercase tracking-tighter mb-4">
-                      {industry}
-                   </h4>
-                   
-                   <p className="text-gray-400 text-sm font-medium leading-relaxed mt-4">
-                      Engineering solutions and precision component manufacturing for advanced applications in the {industry.toLowerCase()} sector.
-                   </p>
-                </div>
-             </motion.div>
+              <motion.div
+                key={industry}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.05 }}
+                className="group relative bg-black p-8 min-h-[240px] flex flex-col justify-start overflow-hidden hover:bg-zinc-900 transition-colors duration-500"
+              >
+                 {/* Structural Grid Background */}
+                 <div className="absolute inset-0 industrial-pattern opacity-[0.03] group-hover:opacity-[0.08] transition-opacity duration-500" />
+                 
+                 {/* Status LED */}
+                 <div className="absolute top-6 right-6 w-1.5 h-1.5 rounded-full bg-white/10 group-hover:bg-lime transition-colors duration-300 shadow-[0_0_6px_rgba(204,255,0,0.5)]" />
+
+                 <div className="relative z-10">
+                    <h4 className="text-2xl font-bold text-white leading-none uppercase tracking-tighter mb-4 group-hover:translate-x-1 transition-transform duration-500">
+                       {industry}
+                    </h4>
+                    
+                    <p className="text-gray-400 text-sm font-medium leading-relaxed mt-4">
+                       Engineering solutions and precision component manufacturing for advanced applications in the {industry.toLowerCase()} sector.
+                    </p>
+                 </div>
+
+                 {/* Bottom border stripe */}
+                 <div className="absolute bottom-0 left-0 w-0 h-[2px] bg-lime group-hover:w-full transition-all duration-500" />
+              </motion.div>
            ))}
         </div>
       </div>

@@ -76,7 +76,7 @@ export default function Hero({
           <motion.button 
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            onClick={(e) => scrollToId(e, 'about')}
+            onClick={(e) => scrollToId(e, 'why-us')}
             className="border border-white/20 hover:border-lime bg-transparent hover:bg-lime text-white hover:text-black font-bold text-[11px] tracking-[4px] uppercase px-12 py-4 transition-all duration-700 font-sans cursor-pointer shadow-sm"
           >
             Explore Site

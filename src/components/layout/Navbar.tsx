@@ -24,7 +24,7 @@ export default function Navbar({
   }, []);
 
   React.useEffect(() => {
-    const sections = ['home', 'about', 'fleet', 'solutions', 'products', 'gallery', 'contact'];
+    const sections = ['home', 'products', 'solutions', 'fleet', 'gallery', 'about', 'contact'];
     const observerOptions = {
       root: null,
       rootMargin: '-50% 0px -50% 0px',
@@ -80,7 +80,7 @@ export default function Navbar({
         </motion.div>
         
         <ul className="hidden lg:flex gap-8 xl:gap-12 list-none">
-          {['About', 'Fleet', 'Solutions', 'Products', 'Gallery', 'Contact'].map((item) => {
+          {['Products', 'Solutions', 'Fleet', 'Gallery', 'About', 'Contact'].map((item) => {
             const id = item.toLowerCase().replace(' ', '-');
             const isActive = activeSection === id;
             return (
@@ -127,7 +127,7 @@ export default function Navbar({
             <button className="absolute top-10 right-10 text-white" onClick={() => setIsMobileMenuOpen(false)}>
               <X size={32} />
             </button>
-            {['About', 'Fleet', 'Solutions', 'Products', 'Gallery', 'Contact'].map((item) => {
+            {['Products', 'Solutions', 'Fleet', 'Gallery', 'About', 'Contact'].map((item) => {
               const id = item.toLowerCase().replace(' ', '-');
               return (
                 <motion.a 
